@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
+import Link from "next/link";
 import { newArrivalsProducts } from "../../constants/contants";
 import ProductCard from "../common/ProductCard";
 import { Button } from "../ui/button";
@@ -110,10 +111,12 @@ const NewArrivals = () => {
 
         {/* View All Button */}
         <div className="text-center mt-12">
-          <Button size="lg">
-            View All
-            <ChevronRight />
-          </Button>
+          <Link href="/products">
+            <Button size="lg">
+              View All
+              <ChevronRight />
+            </Button>
+          </Link>
         </div>
       </div>
     </section>

@@ -3,6 +3,7 @@
 import React from "react";
 import { Star, Heart, ShoppingCart } from "lucide-react";
 import Link from "next/link";
+import { getProductUrl } from "../../utils/slugify";
 
 const ProductCard = ({ product, className = "" }) => {
   const {
@@ -67,7 +68,7 @@ const ProductCard = ({ product, className = "" }) => {
         {/* Quick View Overlay */}
         <div className="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
           <Link
-            href={`/products/${id}`}
+            href={getProductUrl(id, name)}
             className="px-4 py-2 bg-white text-gray-900 font-medium rounded-lg hover:bg-gray-100 transition-colors duration-200 transform translate-y-4 group-hover:translate-y-0"
           >
             Quick View
@@ -83,7 +84,7 @@ const ProductCard = ({ product, className = "" }) => {
         </p>
 
         {/* Product Name */}
-        <Link href={`/products/${id}`}>
+        <Link href={getProductUrl(id, name)}>
           <h3 className="font-medium text-gray-900 mb-2 hover:text-blue-600 transition-colors duration-200 line-clamp-2">
             {name}
           </h3>
